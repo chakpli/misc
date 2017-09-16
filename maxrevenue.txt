@@ -1,0 +1,21 @@
+objective: max ER, where R is revenue
+
+ER = E(R|cancel) P(cancel) + E(R|not cancel) P(not cancel)
+
+ER = E(R|click)P(click cancel button) + E(R|call customer service)P(call customer service) + E(R|not cancel)P(not cancel)
+
+Assuming this is a monthly model, 20 dollars monthly subscription, 5 dollars cost for customer service, 0 cost for clicking the server
+
+ER = -5P(call customer service) + (20 + ER) P(not cancel)
+
+ER = -5 P(call customer service) + 20 P(not cancel) + ER P(not cancel)
+
+ER = (-5 P(call customer service) + 20 P(not cancel)) / (1- P(not cancel))
+
+Therefore, we now sovling an optimization problem:
+
+max  ER = (-5 P(call customer service) + 20 P(not cancel)) / (1- P(not cancel)) where P(call customer service) in [0,1] and P(not cancel) in [0,1]
+
+Note the "clicks for cancel button” can affect P(not cancel) and P(call customer service)
+
+
